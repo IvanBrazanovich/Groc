@@ -1,0 +1,63 @@
+@use "../index.scss" as *;
+
+@mixin blueColorHover {
+  color: $blueBase;
+
+  path {
+    color: inherit;
+  }
+}
+
+.stackWrapper {
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid $backgroundHover;
+  div {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.4rem;
+    cursor: pointer;
+    border-radius: $rounded_md;
+    &:hover {
+      background-color: $backgroundHover;
+
+      @include blueColorHover();
+    }
+  }
+}
+
+.projects {
+  margin: 0.5rem 0;
+
+  .project__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem;
+    border-radius: $rounded_md;
+    &:hover {
+      background-color: $backgroundHover;
+      @include blueColorHover();
+    }
+  }
+}
+
+.accordionItem {
+  .accordionItem__header {
+    div {
+      display: flex;
+      align-items: center;
+
+      gap: 0.4rem;
+    }
+
+    p {
+      margin: 0;
+    }
+    button {
+      padding: 0.5rem;
+      &:hover {
+        background-color: $backgroundHover;
+      }
+    }
+  }
+}
