@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
 import Home from "./pages/Home";
 import LayoutPage from "./pages/LayoutPage";
+import { useEffect } from "react";
 
 function App() {
   return (

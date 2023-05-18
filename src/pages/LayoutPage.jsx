@@ -1,18 +1,38 @@
-import React from "react";
-import { Col, Container } from "react-bootstrap";
-import { Outlet } from "react-router";
-import FormCreate from "../components/projectComponents/FormCreate";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import SideLayoutPage from "../components/SideLayoutPage";
+import ProjectInCreation from "../components/ProjectInCreation";
+import { useParams } from "react-router";
+import { useDispatch } from "react-redux";
+import { getProject, getProjects } from "../features/project/projectSlice";
+import MyAlert from "../components/MyAlert";
+import useRedirect from "../hooks/useRedirect";
 
 const LayoutPage = () => {
+  const params = useParams();
+  const dispatch = useDispatch();
+  useRedirect("/app");
+
+  useEffect(() => {
+    const call = async () => {
+      await dispatch(getProjects());
+      console.log(params);
+      dispatch(getProject(params.token));
+    };
+    call();
+  }, []);
+
   return (
-    <Container xs={3}>
-      <Col>
-        <SideLayoutPage />
-      </Col>
-      <Col xs={9}>
-        <FormCreate />
-      </Col>
+    <Container>
+      <Row>
+        <MyAlert />
+        <Col xs={2}>
+          <SideLayoutPage />
+        </Col>
+        <Col xs={10}>
+          <ProjectInCreation />
+        </Col>
+      </Row>
     </Container>
   );
 };

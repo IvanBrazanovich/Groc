@@ -6,7 +6,6 @@ import {
   Heart,
   Plus,
   Table,
-  UsersFour,
   UsersThree,
   WaveSawtooth,
 } from "@phosphor-icons/react";

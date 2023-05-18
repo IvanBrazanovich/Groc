@@ -17,7 +17,6 @@ function FormCreate() {
   // initialize the form data with an empty array of fields
   const [formData, setFormData] = useState({ fields: [] });
   const [styleNumber, setStyleNumber] = useState(1);
-  console.log(formData);
   // function to add a new field to the form data
   const addField = (e) => {
     const elementType = e.target?.attributes?.type?.value;
@@ -34,7 +33,6 @@ function FormCreate() {
           id: Date.now(),
           type: elementType,
           label: elementType,
-          required: false,
         },
       ],
     });

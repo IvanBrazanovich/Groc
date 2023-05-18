@@ -28,7 +28,6 @@ const CreateProject = ({ show, setShow }) => {
     }
 
     const response = await dispatch(addProject(projectName));
-
     setRedirectId(response.payload.id);
   };
 
